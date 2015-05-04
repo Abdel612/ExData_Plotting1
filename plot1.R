@@ -6,7 +6,7 @@
 #
 #####
 
-#
+# 
 # Step 1: Read the data file and create the related dataset named EPC
 #
 ElecPwrCons = read.csv(file="household_power_consumption.txt",sep=";",header = TRUE, stringsAsFactors=FALSE, 

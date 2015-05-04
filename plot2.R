@@ -1,7 +1,7 @@
 #####
 #
 # Script: plot2.R
-#
+# 
 #    Plot the "Global_active_power" evolution over time according the the project directions that is:
 #
 #####
