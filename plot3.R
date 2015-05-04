@@ -1,8 +1,8 @@
 #####
 #
-# Script: plot1.R
+# Script: plot3.R
 #
-#    Plot the "Global Active Power" histogram according the the project directions that is:
+#    Plot the "Energy sub metering" over time according the the project directions that is:
 #
 #####
 
@@ -24,15 +24,18 @@ EPC$Time = NULL  # Get ride of now useless Time column
 rm(ElecPwrCons)  # save some memory by removing now useless ElecPwrCons dataset
 
 #
-# Step 2: Create the histogram into plot1.png file
+# Step 2: Create the histogram into plot3.png file
 #
-png(file = "plot1.png", bg = "white", width = 480, height = 480)
-hist(EPC$Global_active_power, 
-     main="Global Active Power", 
-     border="black", 
-     col="red", 
-     xlab="Global Active Power (kilowatts)" )
+png(file = "plot3.png", bg = "white", width = 480, height = 480)
+plot(EPC$DateTime,EPC$Sub_metering_1, type="n", ylab="Energy sub metering", xlab="")
+legend("topright",
+       border="black",
+       col=c("black","red","blue"),
+       text.col="black",
+       legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
+       lty=c(1,1,1)
+)
+lines(EPC$DateTime,EPC$Sub_metering_1,col="black")
+lines(EPC$DateTime,EPC$Sub_metering_2,col="red")
+lines(EPC$DateTime,EPC$Sub_metering_3,col="blue")
 dev.off()
-
-
-

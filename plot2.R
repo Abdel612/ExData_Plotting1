@@ -1,8 +1,8 @@
 #####
 #
-# Script: plot1.R
+# Script: plot2.R
 #
-#    Plot the "Global Active Power" histogram according the the project directions that is:
+#    Plot the "Global_active_power" evolution over time according the the project directions that is:
 #
 #####
 
@@ -24,15 +24,9 @@ EPC$Time = NULL  # Get ride of now useless Time column
 rm(ElecPwrCons)  # save some memory by removing now useless ElecPwrCons dataset
 
 #
-# Step 2: Create the histogram into plot1.png file
+# Step 2: Create the histogram into plot2.png file
 #
-png(file = "plot1.png", bg = "white", width = 480, height = 480)
-hist(EPC$Global_active_power, 
-     main="Global Active Power", 
-     border="black", 
-     col="red", 
-     xlab="Global Active Power (kilowatts)" )
+png(file = "plot2.png", bg = "white", width = 480, height = 480)
+plot(EPC$DateTime,EPC$Global_active_power, type="n", ylab="Global Active Power (kilowatts)", xlab="")
+lines(EPC$DateTime,EPC$Global_active_power)
 dev.off()
-
-
-
